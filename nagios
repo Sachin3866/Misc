@@ -1,0 +1,35 @@
+sudo amazon-linux-extras install epel 
+
+sudo yum install nagios nrpe nagios-plugins-all
+
+sudo chkconfig nagios on
+
+sudo systemctl enable nagios
+
+sudo yum install httpd
+
+sudo service httpd start
+
+sudo systemctl enable httpd
+
+sudo yum install php
+
+sudo vi /etc/nagios/objects/contacts.cfg (Enter ur mailId)
+
+switch to root user
+cd /etc/nagios
+ls
+cd objects
+ls
+vi contacts.cfg  (edit email id)
+vi localhost.cfg   (copy local host and add the remotehost remote ec2machine  ec2 ipv4(ec2 instance public ip address))
+
+/usr/sbin/nagios -v /etc/nagios/nagios.cfg  (Optional to check your nagios config & ensure there were no errrors)
+
+sudo systemctl status nagios
+
+sudo systemctl start nagios
+
+http://54.166.175.163/nagios 
+(UName: nagiosadmin
+Pswd: nagiosadmin)
