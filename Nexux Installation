@@ -1,0 +1,33 @@
+    1  sudo yum update -y
+    2  ls
+    3  cd /opt/
+    4  sudo wget https://download.sonatype.com/nexus/3/latest-unix.tar.gz
+    5  ls
+    6  suod tar -xf latest-unix.tar.gz
+    7  sudo tar -xf latest-unix.tar.gz
+    8  ls
+    9* sudo mv nexus-3.28.0-01/ nexus
+   10  ls
+   11  ls -l
+   12  sudo chown -R ec2-user:ec2-user nexus3/ sonatype-work/
+   13  ls
+   14  ls -l
+   15  sudo yum list | grep java-1.8.0
+   16  sudo yum install java-1.8.0-openjdk
+   17  ls
+   18  java -version
+   19  ls
+   20  cd nexus3/
+   21  cd bin/
+   22  ls
+   23  vi nexus.rc
+   24  ls
+   25  history
+   26  sudo ln -s /opt/nexus3/bin/nexus /etc/init.d/nexus
+   27  cd /etc/init.d/
+   28  sudo chilconfig --add nexus
+   29  sudo chkconfig --add nexus
+   30  sudo chkconfig nexus on
+   31  sudo service nexus start
+   32  sudo service nexus status
+   33  sudo cat /opt/sonatype-work/nexus3/admin.password
